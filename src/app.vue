@@ -3,7 +3,9 @@
 		<!-- 顶部组件 -->
 		<mt-header fixed title="我来组成头部"></mt-header>
 		<!-- router-view组件 -->
-		<nav class="mui-bar mui-bar-tab">
+
+		<!-- 底部tabbar组件 -->
+				<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item mui-active" href="#tabbar">
 				<span class="mui-icon mui-icon-home"></span>
 				<span class="mui-tab-label">首页</span>
@@ -21,7 +23,6 @@
 				<span class="mui-tab-label">设置</span>
 			</a>
 		</nav>
-		<!-- 底部tabbar组件 -->
 	</div>
 </template>
 
