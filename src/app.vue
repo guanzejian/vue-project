@@ -3,7 +3,10 @@
 		<!-- 顶部组件 -->
 		<mt-header fixed title="❤我来组成头部❤"></mt-header>
 		<!-- router-view组件 -->
-		<router-view></router-view>
+		<transition>
+			<router-view></router-view>
+		</transition>
+		
 	
 		<!-- 底部tabbar组件 -->
 		<nav class="mui-bar mui-bar-tab">
@@ -38,7 +41,20 @@
 	.paVal header{font-size: 18px;font-weight: 700;color:#fff}
 	
 	.mui-active{
-		color:hotpink !important;
+		color:hotpink !important;	
+	}
 		
-		}
+	.v-enter{
+		opacity: 0;
+		transform: translateX(100%);
+	}
+	.v-leave-to{
+		opacity: 0;
+		transform: translateX(-100%);
+		position: absolute;
+	}
+	.v-enter-active,
+	.v-leave-active{
+		transition:all .5s ease;
+	}
 </style>

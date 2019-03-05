@@ -4,6 +4,10 @@ import Vue from 'vue'
 // 安装、注册路由
 import VueRouter from 'vue-router'
 
+// axios
+import axios from 'axios'
+Vue.prototype.$axios = axios
+
 Vue.use(VueRouter)
 
 // 导入app 根组件
@@ -23,7 +27,7 @@ Vue.component(SwipeItem.name, SwipeItem);
 // 导入router.js 中的router 模块
 import router from './router.js'
 
-// axios
+
 
 var vm = new Vue({
 	render:e=>e(app),
