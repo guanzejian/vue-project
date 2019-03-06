@@ -8,9 +8,9 @@
 		</mt-swipe>
 		<!-- grid -->
 			<ul class="mui-table-view mui-grid-view mui-grid-9 myUl">
-				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="#">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><router-link to="/home/newslist">
 						<img class="imgs" src="../images/grid_03.png" alt="">
-				</a></li>
+				</router-link></li>
 				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="#">
 						<img class="imgs" src="../images/grid_05.png" alt="">
 				</a></li>
@@ -42,6 +42,7 @@
 <script>
 	
 	import { Toast } from 'mint-ui';
+	import { Indicator } from 'mint-ui';
 	export default{
 		
 		data(){
@@ -49,13 +50,18 @@
 				content:''
 			}
 		},
+		beforeCreate(){
+			Indicator.open({
+			  spinnerType:"triple-bounce"
+			});
+		},
 		created(){
 			this.$axios({url:'http://www.liulongbin.top:3005/api/getlunbo',method:'get'}).then(body=>{
-				// this.content = body.data
 				// console.log(body.data)
+				Indicator.close();
 				if(body.data.status === 0){
 					this.content = body.data.message
-					Toast({message:'加载成功！',position:'middle',duration:'1000',iconClass: 'mui-icon mui-icon-checkmarkempty'});
+					// Toast({message:'加载成功！',position:'middle',duration:'1000',iconClass: 'mui-icon mui-icon-checkmarkempty'});
 				}else{
 					Toast('加载失败');
 				}
