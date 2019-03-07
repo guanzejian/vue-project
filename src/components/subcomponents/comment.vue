@@ -48,6 +48,7 @@
 					}
 				})
 			},
+			// 模拟数据，渲染
 			addcom(){
 				if(this.Tarea.trim() == ""){
 					return Toast("评论不能为空")
