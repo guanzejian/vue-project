@@ -11,9 +11,9 @@
 				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><router-link to="/home/newslist">
 						<img class="imgs" src="../images/grid_03.png" alt="">
 				</router-link></li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="#">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><router-link to="/home/photolist">
 						<img class="imgs" src="../images/grid_05.png" alt="">
-				</a></li>
+				</router-link></li>
 				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="#">
 						<img class="imgs" src="../images/grid_07.png" alt="">
 						</a></li>
