@@ -9,6 +9,7 @@ import search from './components/search.vue';
 import NewsList from './components/home/newslist.vue'
 import newsinfo from './components/home/newsinfo.vue'
 import photolist from './components/home/photolist.vue'
+import photoinfo from './components/home/photoinfo.vue'
 //  创建路由对象
 var router = new VueRouter({
 	routes:[
@@ -19,7 +20,8 @@ var router = new VueRouter({
 		{ path:'/search', component:search },
 		{ path:'/home/newslist', component:NewsList },
 		{ path:'/home/newsinfo/:id',component:newsinfo },
-		{ path:'/home/photolist', component:photolist }
+		{ path:'/home/photolist', component:photolist },
+		{ path:'/home/photoinfo/:id', component:photoinfo }
 	],
 	linkActiveClass:"mui-active"
 })
