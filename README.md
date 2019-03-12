@@ -1,5 +1,8 @@
 # 自建一个项目模板
-
+### 使用方法：
+### npm i
+### npm run dev
+### npm run build
 ~~~txt
 解决git pull从 HTTPS方式，git push 时需要输入账号和密码
 添加git config内容
