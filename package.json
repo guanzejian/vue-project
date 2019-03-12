@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --open --port 3000 --contentBase src --hot"
+    "dev": "webpack-dev-server --open --port 3000 --hot --host 192.168.137.1"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +16,8 @@
     "mint-ui": "^2.2.13",
     "moment": "^2.24.0",
     "vue": "^2.6.7",
-    "vue-router": "^3.0.2"
+    "vue-router": "^3.0.2",
+    "vue2-preview": "^1.0.5"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

@@ -46,7 +46,7 @@
 				this.$axios({
 					url:"http://www.liulongbin.top:3005/api/getlunbo",method:"get"
 				}).then(body=>{
-					console.log(body.data)
+					// console.log(body.data)
 					if(body.data.status === 0){
 						// body.data.message.unshift({title:"全部",id:0})
 						this.cates = body.data.message

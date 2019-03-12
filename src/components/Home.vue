@@ -10,13 +10,16 @@
 			<ul class="mui-table-view mui-grid-view mui-grid-9 myUl">
 				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><router-link to="/home/newslist">
 						<img class="imgs" src="../images/grid_03.png" alt="">
+						<span class="pos-ab">新闻列表</span>
 				</router-link></li>
 				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><router-link to="/home/photolist">
 						<img class="imgs" src="../images/grid_05.png" alt="">
+						<span class="pos-ab">相册</span>
 				</router-link></li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="#">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><router-link to="/home/goodslist">
 						<img class="imgs" src="../images/grid_07.png" alt="">
-						</a></li>
+						<span class="pos-ab">商品列表</span>
+						</router-link></li>
 				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="#">
 						<img class="imgs" src="../images/grid_12.png" alt="">
 						</a></li>
@@ -96,6 +99,12 @@
 				padding: 0 !important;
 				.imgs{
 					width: 100%;
+				}
+				.pos-ab{
+					position: absolute;
+					margin: auto;
+					top: 0;left: 0;right: 0;bottom: 0;
+					color: #fff
 				}
 			}
 		}

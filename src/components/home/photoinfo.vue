@@ -7,7 +7,8 @@
 		</p>
 		<hr>
 		<!-- 缩略图区域 -->
-		
+	
+		<vue-preview :slides="slide1" @close="handleClose"></vue-preview>
 		<!-- 图片内容区域 -->
 		<div class="content">{{ photoinfo.content }}</div>
 		<!-- 评论子组件 -->
@@ -22,7 +23,7 @@
 			return {
 				id:this.$route.params.id,
 				photoinfo:{},
-				
+				slide1:[]
 			}
 		},
 		created(){
@@ -31,7 +32,7 @@
 		methods:{
 			getphotoinfo(){
 				this.$axios({url:"http://api.komavideo.com/news/list",method:"post"}).then(body=>{
-					console.log(body.data[this.id-1])
+					// console.log(body.data[this.id-1])
 					this.photoinfo = body.data[this.id-1]
 					
 				})

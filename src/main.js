@@ -27,6 +27,11 @@ import MintUI from 'mint-ui'
 Vue.use(MintUI)
 import 'mint-ui/lib/style.css'
 
+// 安装图片预览插件
+import VuePreview from 'vue2-preview'
+// defalut install
+Vue.use(VuePreview)
+
 // 导入router.js 中的router 模块
 import router from './router.js'
 
@@ -40,6 +45,7 @@ import moment from "moment"
 Vue.filter('dataFormat',function(value,geshi = 'YYYY-MM-DD hh:mm:ss'){
 	return moment(value).format(geshi)
 })
+
 
 var vm = new Vue({
 	render:e=>e(app),
