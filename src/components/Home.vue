@@ -1,11 +1,7 @@
 <template>
 	<div>
 		<!-- 轮播图 -->
-		<mt-swipe :auto="3000">
-		  <mt-swipe-item v-for='item in content' :key='item.id'>
-			  <img :src="item.img" alt="">
-		  </mt-swipe-item>
-		</mt-swipe>
+		<swiper :content="content"></swiper>
 		<!-- grid -->
 			<ul class="mui-table-view mui-grid-view mui-grid-9 myUl">
 				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><router-link to="/home/newslist">
@@ -46,6 +42,8 @@
 	
 	import { Toast } from 'mint-ui';
 	import { Indicator } from 'mint-ui';
+	
+	import swiper from './subcomponents/Swiper.vue'
 	export default{
 		
 		data(){
@@ -69,27 +67,30 @@
 					Toast('加载失败');
 				}
 			})
+		},
+		components:{
+			swiper
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
 	html,body{margin: 0;padding: 0}
-	.mint-swipe{
-		height: 150px;
-		.mint-swipe-item{
-			&:nth-child(1){
-				background: greenyellow;
-			}
-			&:nth-child(2){
-				background: deepskyblue;
-			}
-			&:nth-child(3){
-				background: skyblue
-			}
-			img{width: 100%;height: 100%}
-		}
-	}
+// 	.mint-swipe{
+// 		height: 150px;
+// 		.mint-swipe-item{
+// 			&:nth-child(1){
+// 				background: greenyellow;
+// 			}
+// 			&:nth-child(2){
+// 				background: deepskyblue;
+// 			}
+// 			&:nth-child(3){
+// 				background: skyblue
+// 			}
+// 			img{width: 100%;height: 100%}
+// 		}
+// 	}
 	
 	.myUl{
 		background: #fff;

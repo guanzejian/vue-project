@@ -1,6 +1,6 @@
 <template>
 	<div class="goods-list">
-		<router-link class="goods-item" v-for="item in goodslist" :key="item.id"  :to="'/home/goodsinfo/'+item.id" tag="div">
+		<!-- <router-link class="goods-item" v-for="item in goodslist" :key="item.id"  :to="'/home/goodsinfo/'+item.id" tag="div">
 			<img :src="item.img" alt="手机图片">
 			<h1 class="title">小米note7</h1>
 			<div class="info">
@@ -13,7 +13,25 @@
 					<span>剩60件</span>
 				</p>
 			</div>
-		</router-link>
+		</router-link> -->
+		
+		<!-- 在网页中有两种跳转方式 -->
+		<!-- 方式1 、 使用a标签 的形式跳转，标签跳转 -->
+		<!-- 方式2、 使用window.location.href的形式， 叫做， 编程式跳转 -->
+		<div class="goods-item" v-for="item in goodslist" :key="item.id" @click="goDetail(item.id)">
+			<img :src="item.img" alt="手机图片">
+			<h1 class="title">小米note7</h1>
+			<div class="info">
+				<p class="price">
+					<span class="now">￥888</span>
+					<span class="old">￥999</span>
+				</p>
+				<p class="sell">
+					<span>热卖中</span>
+					<span>剩60件</span>
+				</p>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -37,6 +55,10 @@
 						this.goodslist = body.data.message
 					}
 				})
+			},
+			// 编程式跳转
+			goDetail(id){
+				this.$router.push('/home/goodsinfo/'+id)
 			}
 		}
 	}
