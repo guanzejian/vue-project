@@ -35,6 +35,41 @@ helper = store
 	- 具体使用方法见官网：(https://github.com/LS1231/vue-preview)
 
 ## 尝试在手机上 去进行项目的预览和测试
-	1、要保证 手机和开发项目的电脑处于 同一个 wifi 环境中，也就是说手机可以访问到电脑的IP（同一个局域网）
-	2、打开自己的项目中 package.json 文件，在 dev 脚本中，添加一个 --host 指令，把当前的电脑的wifi Ip 地址，设置为 --host 的指令值；
+**1、要保证 手机和开发项目的电脑处于 同一个 wifi 环境中，也就是说手机可以访问到电脑的IP（同一个局域网）<br>
+**	2、打开自己的项目中 package.json 文件，在 dev 脚本中，添加一个 --host 指令，把当前的电脑的wifi Ip 地址，设置为 --host 的指令值；
 + 如何查看自己电脑所处wifi 的IP？----> 在cmd终端中运行 `ipconfig`  ，查看无线网的Ip 地址；
+
+~~~js
+get 请求获取所有品牌列表的 api
+http://kerys.pythonanywhere.com/api/getprodlist/
+
+{status: "success", message: Array(6)}
+0:{id: 193, name: "马自达", ctime: "2019-03-13T01:03:49.609"}
+1:{id: 209, name: "B站的筒子们 你们好", ctime: "2019-03-14T09:46:54.831"}
+2:{id: 210, name: "好好好", ctime: "2019-03-14T09:49:08.792"}
+3:{id: 211, name: "666", ctime: "2019-03-14T09:50:05.274"}
+4:{id: 213, name: "你们好!!", ctime: "2019-03-14T14:05:12.823"}
+5:{id: 215, name: "牛车", ctime: "2019-03-14T14:25:56.501"}
+~~~
+
+~~~js
+- post 请求添加品牌的 api
+http://kerys.pythonanywhere.com/api/addprod/
+
+{status: "failed", message: "添加的品牌名称不能为空"}
+~~~
+
+~~~js
+- get 请求删除品牌的 api
+http://kerys.pythonanywhere.com/api/delprod/id
+
+状态码：  500
+~~~
+没图，数据一堆
+** `http://api.komavideo.com/news/list` -------------------post  <br>
+有图、有id、url。
+** `http://www.liulongbin.top:3005/api/getlunbo`      -----------get
+
+> 改变子组件的样式：设置一个动态值，通过父子组件传值的方式去改变动态样式（:class 或 :style）
+- 方法： 1、给父组件 绑定一个值 布尔值  (:name="true")；
++ 		2、给子组件props传入父组件值( props:['name'] ), 给子组件绑定个动态类( :class='{name:name}' ); name样式直接写在子组件中；

@@ -3,7 +3,7 @@
 		<mt-swipe :auto="3000">
 			<!-- 谁使用轮播图组件，谁为我们传递 content  -->
 		  <mt-swipe-item v-for='item in content' :key='item.id'>
-			  <img :src="item.img" alt="">
+			  <img :src="item.img" :class="{fullscreen}" alt="">
 		  </mt-swipe-item>
 		</mt-swipe>
 	</div>
@@ -11,7 +11,7 @@
 
 <script>
 	export default {
-		props:["content"]
+		props:["content","fullscreen"]
 	}
 </script>
 
@@ -19,15 +19,9 @@
 		.mint-swipe{
 		height: 150px;
 		.mint-swipe-item{
-			&:nth-child(1){
-				background: greenyellow;
-			}
-			&:nth-child(2){
-				background: deepskyblue;
-			}
-			&:nth-child(3){
-				background: skyblue
-			}
+			text-align: center;
+			.fullscreen{width: 80%;}
+			
 			img{width: 100%;height: 100%}
 		}
 	}
