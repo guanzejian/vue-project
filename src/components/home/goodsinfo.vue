@@ -114,6 +114,8 @@
 				const ballPos = this.$refs.ball.getBoundingClientRect();
 				// console.log(ballPos.left);
 				const badgePos = document.getElementById("ballSum").getBoundingClientRect();
+// 				const badgePos = this.$emit("badge");
+// 				console.log(badgePos)
 				const x = badgePos.left - ballPos.left;
 				const y = badgePos.top - ballPos.top;
 				el.style.transform = "translate("+ x +"px,"+ y +"px)";
@@ -159,8 +161,8 @@
 		}
 		
 		.ball{
-			width: 30px;
-			height: 30px;
+			width: 20px;
+			height: 20px;
 			border-radius: 50%;
 			background: #f00;
 			position: absolute;

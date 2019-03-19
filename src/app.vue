@@ -36,6 +36,10 @@
 			return {
 				
 			}
+		},
+		methods:{
+			
+			
 		}
 	}
 </script>

@@ -73,3 +73,39 @@ http://kerys.pythonanywhere.com/api/delprod/id
 > 改变子组件的样式：设置一个动态值，通过父子组件传值的方式去改变动态样式（:class 或 :style）
 - 方法： 1、给父组件 绑定一个值 布尔值  (:name="true")；
 + 		2、给子组件props传入父组件值( props:['name'] ), 给子组件绑定个动态类( :class='{name:name}' ); name样式直接写在子组件中；
+ 		
+-----------------------
+## Vuex
++ props 、data 、和vuex 的区别：
+- props 是接收父组件的数据
+- data  是私有数据 
+- vuex  是一个全局共享数据存储区域，相当于一个数据的仓库
+~~~js
+var store = new Vuex.store({
+	state:{   // 相当于组件中的data,专门用来存储数据的，如果在组件中，想要访问store中的数据， 通过 this.$store.state.count 来访问
+		count
+	},
+	mutations:{  // 主要负责修改store中的数据
+		increment(state){
+			state.count++
+		},
+		subtract(state){
+			state.count -= 1
+		}
+		
+		// 如果组件想要调用 mutations中的方法，只能使用this.$store.commit('方法名')
+		// 这种 调用 mutations 方法的格式,和this.$emit("父组件中方法名")
+	},
+	getters:{  // 注意： getters值负责，对外提供数据，不负责修改数据 ，mutations才会修改数据
+			// 和组件中的过滤器比较类似，因为过滤器和getters 都没有修改原数据，
+	}
+})
+
+// 总结：
+// 1、state中的数据，不能直接修改，必须通过 mutations
+// 2、如果组件想要直接从state 上获取数据， 需要this.$store.state.***
+// 3、如果组件想要修改数据，必须使用mutations 提供的方法，需要通过this.$store.commit("方法名称",唯一的一个参数)
+// 4、如果 store 中state 上的数据，在对外提供数据的时候，需要做一层包装，那么，推荐使用 getters， 如果需要使用getters，则用this.$store.getters.***
+
+~~~
+ 

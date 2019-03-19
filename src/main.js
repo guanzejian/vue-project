@@ -6,6 +6,22 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+// 注册vuex 
+import Vuex from 'vuex'
+Vue.use(Vuex)
+var store = new Vuex.Store({
+	state:{   // this.$store.state.---///
+		car:[{},{},{}]  // 购物车中的商品数据{ id:商品id, count: 要购买数量 , price: 商品的单价 , selected :false  （选中状态保存） }
+	},
+	mutations:{  // this.$store.commit("方法名",唯一参数)
+		
+	},
+	getters:{  // this.$store.getters.----///
+		
+	}
+})
+
+
 // 导入app 根组件
 import app from './app.vue'
 
@@ -50,4 +66,5 @@ Vue.filter('dataFormat',function(value,geshi = 'YYYY-MM-DD hh:mm:ss'){
 var vm = new Vue({
 	render:e=>e(app),
 	router,   //挂载路由对象到vm 实例上 
+	store, // 挂载vuex store
 }).$mount("#app")
