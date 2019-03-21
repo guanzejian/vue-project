@@ -104,7 +104,17 @@
 			},
 			// 添加到购物车
 			addToCar(){
-				this.ballflag = !this.ballflag
+				this.ballflag = !this.ballflag;
+				// {id：商品id, count:购买的数量,price: 商品的价格,selected:是否选中的状态}
+				// 拼接出一个，要保存到store中的 car 数组里的商品信息对象
+				var goodsinfo = { 
+					id: this.id, 
+					count:this.selectedCount, 
+					price: this.goodsinfo.id,
+					selected: true,
+					};
+					// 调用vuex store 中的 mutation 来 将商品加入购物车中
+				this.$store.commit("addToCar",goodsinfo);
 			},
 			beforeEnter(el){
 				el.style.transform = "translate(0,0)"

@@ -9,15 +9,43 @@ Vue.use(VueRouter)
 // 注册vuex 
 import Vuex from 'vuex'
 Vue.use(Vuex)
+
+// 每次刚进入网站， 肯定会调用main.js 在刚调用的时候,把购物车的数据读出来，放到store 中
+var car = JSON.parse(localStorage.getItem("car") || '[]')
+
 var store = new Vuex.Store({
 	state:{   // this.$store.state.---///
-		car:[{},{},{}]  // 购物车中的商品数据{ id:商品id, count: 要购买数量 , price: 商品的单价 , selected :false  （选中状态保存） }
+		car:car  // 购物车中的商品数据{ id:商品id, count: 要购买数量 , price: 商品的单价 , selected :false  （选中状态保存） }
 	},
 	mutations:{  // this.$store.commit("方法名",唯一参数)
-		
+		// 点击加入购物车，把商品信息，保存到store 中的car上
+		// 分析：
+		// 1、如果购物车中，之前就已经有这个对应的商品了，那么，只需要更新数量
+		// 2、如果没有，则直接把商品数据，push到car中即可
+		addToCar(state,goodsinfo){
+			var flag = false;
+			state.car.some(item=>{
+				if(item.id == goodsinfo.id){
+					item.count += parseInt(goodsinfo.count)
+					flag = true
+					return true
+				}
+			})
+			if(!flag){
+				state.car.push(goodsinfo)
+			}
+			// 当更新 car 之后，把car  数组，存储到本地的localStorage 中
+			localStorage.setItem("car",JSON.stringify(state.car))
+		}
 	},
-	getters:{  // this.$store.getters.----///
-		
+	getters:{  // this.$store.getters.----///  相当于 计算属性
+		getAllCount(state){
+			var c = 0;
+			state.car.forEach(item =>{
+				c += item.count
+			})
+			return c
+		}
 	}
 })
 

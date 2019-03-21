@@ -1,7 +1,11 @@
 <template>
 	<div class="paVal">
 		<!-- 顶部组件 -->
-		<mt-header fixed title="❤我来组成头部❤"></mt-header>
+		<mt-header fixed title="❤我来组成头部❤">
+			<span slot="left" @click="goBack" v-show="flag"> 
+				<mt-button icon="back" slot="left" >返回</mt-button>
+			</span>
+		</mt-header>
 		<!-- router-view组件 -->
 		<transition>
 			<router-view></router-view>
@@ -19,7 +23,7 @@
 				<span class="mui-tab-label">会员</span>
 			</router-link>
 			<router-link class="mui-tab-item2" to="/shopcar">
-				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"> <span class="mui-badge" id="ballSum">0</span></span>
+				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"> <span class="mui-badge" id="ballSum">{{ $store.getters.getAllCount }}</span></span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
 			<router-link class="mui-tab-item2" to="/search">
@@ -34,12 +38,25 @@
 	export default {
 		data(){
 			return {
-				
+				flag:false
 			}
 		},
+		created(){
+			this.flag = this.$route.path === "/home" ?false : true;
+		},
 		methods:{
-			
-			
+			goBack(){
+				this.$router.go(-1)
+			}
+		},
+		watch:{
+			'$route.path':function(newval){
+				if(newval === "/home"){
+					this.flag = false;
+				}else{
+					this.flag = true;
+				}
+			}
 		}
 	}
 </script>

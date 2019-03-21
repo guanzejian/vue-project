@@ -1,11 +1,9 @@
 <template>
 	<div class="newsinfo-container">
-		<mt-header fixed title="标题过长会隐藏后面的内容啊哈哈哈哈">
-		  <!-- <router-link to="" slot="left"> -->
-			<mt-button icon="back" slot="left"  @click="goback()">返回</mt-button>
-		  <!-- </router-link> -->
+	<!-- 	<mt-header fixed title="标题过长会隐藏后面的内容啊哈哈哈哈">
+		  
 		  <mt-button icon="more" slot="right"></mt-button>
-		</mt-header>
+		</mt-header> -->
 		<h3 class="title">{{ newsinfo.title }}</h3>
 		<p class="subtitle">
 			<span>发表时间:{{ newsinfo.pubdate | dataFormat }}</span><span>点击次数:{{ id }}</span>
@@ -36,9 +34,6 @@
 					// console.log(body.data[this.id].title)
 					this.newsinfo = body.data[this.id]
 				})
-			},
-			goback(){
-				this.$router.go(-1)
 			}
 		},
 		components:{
