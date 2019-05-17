@@ -28,7 +28,7 @@ module.exports = {
             // 装sass-loader : cnpm i sass-loader -D  (提示：额外装内部依赖  cnpm i node-sass -D) 
             { test:/\.scss$/, use:['style-loader','css-loader','sass-loader']},
             // 装 url-loader : cnpm i url-loader file-loader -D  处理图片路径
-            { test: /\.(jpg|png|gif|bmp|jpeg)$/, use:'url-loader?limit=10240&name=[hash:8]-[name].[ext]' }, 
+            { test: /\.(jpg|png|gif|bmp|jpeg)$/, use:'url-loader?limit=1024&name=[hash:8]-[name].[ext]' }, 
              // ?limit=字节  限制图片大小，是否转码为base64,大于或等于给定的字节，则不会转为base64 
              // &name=[name].[ext] 设置 图片名称不转为 hash 值；（一般不需要这样搞）防止两张同名图片出现在同一地址下；
              // &name=[hash:8]-[name].[ext] 这样做，会形成一个带有8位hash值前缀的图片，防止两张图片同名（最优做法）

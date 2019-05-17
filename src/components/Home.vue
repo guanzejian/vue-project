@@ -76,6 +76,9 @@
 
 <style lang="scss" scoped>
 	html,body{margin: 0;padding: 0}
+	.mui-table-view.mui-grid-view .mui-table-view-cell{
+		font-size: 28px !important;
+	}
 // 	.mint-swipe{
 // 		height: 150px;
 // 		.mint-swipe-item{
@@ -98,18 +101,20 @@
 			padding: 0 !important;
 			a{
 				padding: 0 !important;
+				width:100%;height:100%;
+				color:#fff;
 				.imgs{
 					width: 100%;
+					height:100%;
+					display: inline-block;
 				}
 				.pos-ab{
 					position: absolute;
 					margin: auto;
 					top: 0;left: 0;right: 0;bottom: 0;
-					color: #fff
+					font-size:28px;
 				}
 			}
 		}
-		
-		
 	}
 </style>
